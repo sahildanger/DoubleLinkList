@@ -90,4 +90,18 @@ public class DoubleLinkList {
         head = head.next;
         head.previous = null;
     }
+    void insertBeforeNode(Node node,Node nodebefore){
+        System.out.println("inserting node"+node.data+"before node"+nodebefore.data);
+        Node temp=head;
+        while (temp!=null) {
+            if (temp.data == nodebefore.data) {
+                temp.previous.next = node;
+                node.next = temp;
+                node.previous = temp.previous;
+                temp.previous = node;
+                break;
+            }
+            temp = temp.next;
+        }
+    }
 }
